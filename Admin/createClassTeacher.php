@@ -37,16 +37,16 @@ if(isset($_POST['save'])){
         $qu=mysqli_query($conn,"update tblclassarms set isAssigned='1' where Id ='$classArmId'");
             if ($qu) {
                 
-                $statusMsg = "<div class='alert alert-success'  style='margin-right:700px;'>Created Successfully!</div>";
+                $statusMsg = "<div class='alert alert-success'  style='margin-right:700px;'>Tạo giáo viên thành công!</div>";
             }
             else
             {
-                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>";
             }
     }
     else
     {
-         $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+         $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>";
     }
   }
 }
@@ -91,7 +91,7 @@ if(isset($_POST['save'])){
             }
             else
             {
-                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>";
             }
         }
     }
@@ -117,12 +117,12 @@ if(isset($_POST['save'])){
             }
             else
             {
-                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>";
             }
         }
         else{
 
-            $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>"; 
+            $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>"; 
          }
       
   }
@@ -186,7 +186,7 @@ if(isset($_POST['save'])){
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Taọ lớp giáo viên/h1>
+            <h1 class="h3 mb-0 text-gray-800">Taọ lớp giáo viên</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Trang chủ</a></li>
               <li class="breadcrumb-item active" aria-current="page">Tạo lớp giáo viên</li>
@@ -206,11 +206,14 @@ if(isset($_POST['save'])){
                    <div class="form-group row mb-3">
                         <div class="col-xl-6">
                         <label class="form-control-label">Tên<span class="text-danger ml-2">*</span></label>
-                        <input type="text" class="form-control" required name="firstName" value="<?php echo $row['firstName'];?>" id="exampleInputFirstName">
+                        <input type="text" class="form-control control-input" required name="firstName" value="<?php echo $row['firstName'];?>" id="exampleInputFirstName">
+                        <label class="mes-err" hidden>
+                          Bạn cần nhập tên  lớn hơn 5 ký tự
+                        </label>
                         </div>
                         <div class="col-xl-6">
                         <label class="form-control-label">Họ<span class="text-danger ml-2">*</span></label>
-                      <input type="text" class="form-control" required name="lastName" value="<?php echo $row['lastName'];?>" id="exampleInputFirstName" >
+                      <input type="text" class="form-control control-input" required name="lastName" value="<?php echo $row['lastName'];?>" id="exampleInputFirstName" >
                         </div>
                     </div>
                      <div class="form-group row mb-3">
@@ -220,7 +223,7 @@ if(isset($_POST['save'])){
                         </div>
                         <div class="col-xl-6">
                         <label class="form-control-label">Phone No<span class="text-danger ml-2">*</span></label>
-                      <input type="text" class="form-control" name="phoneNo" value="<?php echo $row['phoneNo'];?>" id="exampleInputFirstName" >
+                      <input type="number" class="form-control control-input" name="phoneNo" value="<?php echo $row['phoneNo'];?>" id="exampleInputFirstName" >
                         </div>
                     </div>
                     <div class="form-group row mb-3">
@@ -241,7 +244,7 @@ if(isset($_POST['save'])){
                             ?>  
                         </div>
                         <div class="col-xl-6">
-                        <label class="form-control-label">Nhánh lớp<span class="text-danger ml-2">*</span></label>
+                        <label class="form-control-label">Mã lớp<span class="text-danger ml-2">*</span></label>
                             <?php
                                 echo"<div id='txtHint'></div>";
                             ?>
@@ -251,12 +254,12 @@ if(isset($_POST['save'])){
                     if (isset($Id))
                     {
                     ?>
-                    <button type="submit" name="update" class="btn btn-warning">Cập nhật</button>
+                    <button id="send-btn" type="submit" name="update" class="btn btn-warning">Cập nhật</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php
                     } else {           
                     ?>
-                    <button type="submit" name="save" class="btn btn-primary">Lưu</button>
+                    <button id="send-btn" type="submit" name="save" class="btn btn-primary">Lưu</button>
                     <?php
                     }         
                     ?>
@@ -335,18 +338,6 @@ if(isset($_POST['save'])){
             </div>
           </div>
           <!--Row-->
-
-          <!-- Documentation Link -->
-          <!-- <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>For more documentations you can visit<a href="https://getbootstrap.com/docs/4.3/components/forms/"
-                  target="_blank">
-                  bootstrap forms documentations.</a> and <a
-                  href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">bootstrap input
-                  groups documentations</a></p>
-            </div>
-          </div> -->
-
         </div>
         <!---Container Fluid-->
       </div>
@@ -373,7 +364,23 @@ if(isset($_POST['save'])){
   <script>
     $(document).ready(function () {
       $('#dataTable').DataTable(); // ID From dataTable 
-      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+      $('#dataTableHover').DataTable();
+
+      $(".control-input").on('keyup',function(){
+        var className = $("input[name=className]").val();
+        if( className.length <= 4  && className !== '' ){
+            $('.mes-err').removeAttr("hidden");
+        }
+        else{
+          $('.mes-err').attr("hidden", "hidden");
+        }
+        if(className.length > 4  ){
+          $('#send-btn').removeAttr("disabled");
+        }
+        else{
+          $('#send-btn').attr('disabled', 'disabled');
+        }
+      })
     });
   </script>
 </body>

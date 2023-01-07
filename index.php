@@ -93,8 +93,8 @@ session_start();
       else{
 
         echo "<div class='alert alert-danger' role='alert'>
-        Invalid Username/Password!
-        </div>";
+        Đăng nhập không thành công !
+        </div>"
 
       }
     }
