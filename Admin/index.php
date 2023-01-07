@@ -177,66 +177,7 @@ $totAttendance = mysqli_num_rows($query1);
                           </div>
                         </div>
           
-
-                         <!-- Session and Terms Card  -->
-            <?php 
-            $query1=mysqli_query($conn,"SELECT * from tblsessionterm");                       
-            $sessTerm = mysqli_num_rows($query1);
-            ?>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                          <div class="card h-100">
-                            <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Phiên họp và điều khoản</div>
-                                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $sessTerm;?></div>
-                                  <div class="mt-2 mb-0 text-muted text-xs">
-                                    <!-- <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                    <span>Since last years</span> -->
-                                  </div>
-                                </div>
-                                <div class="col-auto">
-                                  <i class="fas fa-calendar-alt fa-2x text-warning"></i>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-
-                        <!-- Terms Card  -->
-            <?php 
-            $query1=mysqli_query($conn,"SELECT * from tblterm");                       
-            $termonly = mysqli_num_rows($query1);
-            ?>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                          <div class="card h-100">
-                            <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Kỳ hạn</div>
-                                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $termonly;?></div>
-                                  <div class="mt-2 mb-0 text-muted text-xs">
-                                    <!-- <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                    <span>Since last years</span> -->
-                                  </div>
-                                </div>
-                                <div class="col-auto">
-                                  <i class="fas fa-th fa-2x text-info"></i>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
           <!--Row-->
-
-          <!-- <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>Do you like this template ? you can download from <a href="https://github.com/indrijunanda/RuangAdmin"
-                  class="btn btn-primary btn-sm" target="_blank"><i class="fab fa-fw fa-github"></i>&nbsp;GitHub</a></p>
-            </div>
-          </div> -->
-
         </div>
         <!---Container Fluid-->
       </div>

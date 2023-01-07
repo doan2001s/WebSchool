@@ -144,19 +144,22 @@ if(isset($_POST['save'])){
                     <div class="form-group row mb-3">
                         <div class="col-xl-6">
                             <label class="form-control-label">Tên lớp<span class="text-danger ml-2">*</span></label>
-                      <input type="text" class="form-control" name="className" value="<?php echo $row['className'];?>" id="exampleInputFirstName" placeholder="Class Name">
+                      <input type="text" class="form-control control-input" name="className" value="<?php echo $row['className'];?>" id="exampleInputFirstName" placeholder="Nhập tên lớp">
+                      <label class="mes-err" hidden>
+                        Bạn cần nhập tên lớn hơn 5 ký tự
+                      </label>
                         </div>
                     </div>
                       <?php
                     if (isset($Id))
                     {
                     ?>
-                    <button type="submit" name="update" class="btn btn-warning">Cập nhật</button>
+                    <button id="send-btn" type="submit" name="update" class="btn btn-warning" disabled>Cập nhật</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php
                     } else {           
                     ?>
-                    <button type="submit" name="save" class="btn btn-primary">Lưu</button>
+                    <button id="send-btn" type="submit" name="save" class="btn btn-primary" disabled>Lưu</button>
                     <?php
                     }         
                     ?>
@@ -177,8 +180,7 @@ if(isset($_POST['save'])){
                       <tr>
                         <th>#</th>
                         <th>Tên lớp</th>
-                        <th>Edit</th>
-                        <th>Xóa</th>
+                        <th>Chức năng</th>
                       </tr>
                     </thead>
                   
@@ -198,8 +200,11 @@ if(isset($_POST['save'])){
                               <tr>
                                 <td>".$sn."</td>
                                 <td>".$rows['className']."</td>
-                                <td><a href='?action=edit&Id=".$rows['Id']."'><i class='fas fa-fw fa-edit'></i>Edit</a></td>
-                                <td><a href='?action=delete&Id=".$rows['Id']."'><i class='fas fa-fw fa-trash'></i>Delete</a></td>
+                                <td>
+                                  <a href='?action=edit&Id=".$rows['Id']."'><i class='fas fa-fw fa-edit'></i>
+                                  </a>
+                                  <a href='?action=delete&Id=".$rows['Id']."'><i class='fas fa-fw fa-trash'></i></a>
+                                </td>
                               </tr>";
                           }
                       }
@@ -220,18 +225,6 @@ if(isset($_POST['save'])){
             </div>
           </div>
           <!--Row-->
-
-          <!-- Documentation Link -->
-          <!-- <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>For more documentations you can visit<a href="https://getbootstrap.com/docs/4.3/components/forms/"
-                  target="_blank">
-                  bootstrap forms documentations.</a> and <a
-                  href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">bootstrap input
-                  groups documentations</a></p>
-            </div>
-          </div> -->
-
         </div>
         <!---Container Fluid-->
       </div>
@@ -240,12 +233,28 @@ if(isset($_POST['save'])){
       <!-- Footer -->
     </div>
   </div>
-
   <!-- Scroll to top -->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a>
-
+  </a>                  
+  <div id="testmodal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Thông báo</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa dữ liệu này không?</p>
+                <p class="text-warning"><small>nếu bạn xóa , bạn sẽ không thể khôi phục lại được dữ liệu.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+                <button type="button" class="btn btn-primary">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -258,9 +267,52 @@ if(isset($_POST['save'])){
   <script>
     $(document).ready(function () {
       $('#dataTable').DataTable(); // ID From dataTable 
-      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+      $('#dataTableHover').DataTable();
+
+      $(".control-input").on('keyup',function(){
+      var className = $("input[name=className]").val();
+      if( className.length <= 4  && className !== '' ){
+          $('.mes-err').removeAttr("hidden");
+          
+      }
+      else{
+        $('.mes-err').attr("hidden", "hidden");
+      }
+      if(className.length > 4  ){
+        $('#send-btn').removeAttr("disabled");
+      }
+      else{
+    $('#send-btn').attr('disabled', 'disabled');
+  }
+    })
     });
+    $(document).ready(function(){
+      var show_btn=$('.show-modal');
+      var show_btn=$('.show-modal');
+      //$("#testmodal").modal('show');
+      
+        show_btn.click(function(){
+          $("#testmodal").modal('show');
+      })
+    });
+
+    $(function() {
+      $('#element').on('click', function( e ) {
+          Custombox.open({
+              target: '#testmodal-1',
+              effect: 'fadein'
+          });
+          e.preventDefault();
+      });
+    });
+
+    
   </script>
+  <style>
+    .mes-err{
+      color: red;
+    }
+  </style>
 </body>
 
 </html>

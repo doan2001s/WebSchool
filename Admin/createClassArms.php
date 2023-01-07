@@ -126,10 +126,10 @@ if(isset($_POST['save'])){
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tạo nhánh lớp</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tạo mã lớp</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Trang chủ</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Tạo nhánh lớp</li>
+              <li class="breadcrumb-item active" aria-current="page">Tạo mã lớp</li>
             </ol>
           </div>
 
@@ -138,7 +138,7 @@ if(isset($_POST['save'])){
               <!-- Form Basic -->
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Tạo nhánh lớp</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tạo mã lớp</h6>
                     <?php echo $statusMsg; ?>
                 </div>
                 <div class="card-body">
@@ -152,7 +152,7 @@ if(isset($_POST['save'])){
                         $num = $result->num_rows;		
                         if ($num > 0){
                           echo ' <select required name="classId" class="form-control mb-3">';
-                          echo'<option value="">--Select Class--</option>';
+                          echo'<option value="">--Chọn lớp--</option>';
                           while ($rows = $result->fetch_assoc()){
                           echo'<option value="'.$rows['Id'].'" >'.$rows['className'].'</option>';
                               }
@@ -161,8 +161,8 @@ if(isset($_POST['save'])){
                             ?>  
                         </div>
                         <div class="col-xl-6">
-                        <label class="form-control-label">Tên nhánh lớp<span class="text-danger ml-2">*</span></label>
-                      <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Tên nhánh lớp">
+                        <label class="form-control-label">Tên mã lớp<span class="text-danger ml-2">*</span></label>
+                      <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Tên mã lớp">
                         </div>
                     </div>
                       <?php
@@ -194,11 +194,10 @@ if(isset($_POST['save'])){
                     <thead class="thead-light">
                       <tr>
                         <th>#</th>
-                        <th>Class Name</th>
-                        <th>Class Arm Name</th>
+                        <th>Tên lớp</th>
+                        <th>Trạng thái</th>
                          <th>Status</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Chức năng</th>
                       </tr>
                     </thead>
                   
@@ -224,8 +223,10 @@ if(isset($_POST['save'])){
                                 <td>".$rows['className']."</td>
                                 <td>".$rows['classArmName']."</td>
                                 <td>".$status."</td>
-                                <td><a href='?action=edit&Id=".$rows['Id']."'><i class='fas fa-fw fa-edit'></i>Edit</a></td>
-                                <td><a href='?action=delete&Id=".$rows['Id']."'><i class='fas fa-fw fa-trash'></i>Delete</a></td>
+                                <td>
+                                  <a href='?action=edit&Id=".$rows['Id']."'><i class='fas fa-fw fa-edit'></i></a>
+                                  <a href='?action=delete&Id=".$rows['Id']."'><i class='fas fa-fw fa-trash'></i></a>
+                                </td>
                               </tr>";
                           }
                       }
