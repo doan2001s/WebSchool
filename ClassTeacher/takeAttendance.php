@@ -147,10 +147,10 @@ if(isset($_POST['save'])){
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Take Attendance (Today's Date : <?php echo $todaysDate = date("m-d-Y");?>)</h1>
+            <h1 class="h3 mb-0 text-gray-800">Điểm danh (Today's Date : <?php echo $todaysDate = date("m-d-Y");?>)</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">All Student in Class</li>
+              <li class="breadcrumb-item active" aria-current="page">Tất cả học sinh trong lớp</li>
             </ol>
           </div>
 
@@ -179,7 +179,7 @@ if(isset($_POST['save'])){
                         <th>Other Name</th>
                         <th>Admission No</th>
                         <th>Class</th>
-                        <th>Class Arm</th>
+                        <th>Nhánh class</th>
                         <th>Check</th>
                       </tr>
                     </thead>
@@ -228,7 +228,7 @@ if(isset($_POST['save'])){
                     </tbody>
                   </table>
                   <br>
-                  <button type="submit" name="save" class="btn btn-primary">Take Attendance</button>
+                  <button type="submit" name="save" class="btn btn-primary">Điểm danh</button>
                   </form>
                 </div>
               </div>

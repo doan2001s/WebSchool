@@ -38,10 +38,10 @@ include '../Includes/session.php';
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">View Class Attendance</h1>
+            <h1 class="h3 mb-0 text-gray-800">Xem điểm danh</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">View Class Attendance</li>
+              <li class="breadcrumb-item"><a href="./">Trang chủ</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Xem điểm danh</li>
             </ol>
           </div>
 
@@ -50,14 +50,14 @@ include '../Includes/session.php';
               <!-- Form Basic -->
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">View Class Attendance</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Xem điểm danh</h6>
                     <?php echo $statusMsg; ?>
                 </div>
                 <div class="card-body">
                   <form method="post">
                     <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                        <label class="form-control-label">Select Date<span class="text-danger ml-2">*</span></label>
+                        <label class="form-control-label">Chọn ngày<span class="text-danger ml-2">*</span></label>
                             <input type="date" class="form-control" name="dateTaken" id="exampleInputFirstName" placeholder="Class Arm Name">
                         </div>
                         <!-- <div class="col-xl-6">
@@ -65,7 +65,7 @@ include '../Includes/session.php';
                       <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Class Arm Name">
                         </div> -->
                     </div>
-                    <button type="submit" name="view" class="btn btn-primary">View Attendance</button>
+                    <button type="submit" name="view" class="btn btn-primary">Xem</button>
                   </form>
                 </div>
               </div>
@@ -87,7 +87,7 @@ include '../Includes/session.php';
                         <th>Other Name</th>
                         <th>Admission No</th>
                         <th>Class</th>
-                        <th>Class Arm</th>
+                        <th>Nhánh Class</th>
                         <th>Session</th>
                         <th>Term</th>
                         <th>Status</th>

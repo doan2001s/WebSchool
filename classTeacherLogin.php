@@ -15,7 +15,7 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo/attnlg.jpg" rel="icon">
-  <title>AMS - Login</title>
+  <title>AMS - Đăng nhập</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -35,14 +35,14 @@ session_start();
                   <div class="text-center">
                     <img src="img/logo/attnlg.jpg" style="width:100px;height:100px">
                     <br><br>
-                    <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Đăng nhập</h1>
                   </div>
                   <form class="user" method="Post" action="">
                     <div class="form-group">
-                      <input type="text" class="form-control" required name="username" id="exampleInputEmail" placeholder="Enter Email Address">
+                      <input type="text" class="form-control" required name="username" id="exampleInputEmail" placeholder="Nhập email">
                     </div>
                     <div class="form-group">
-                      <input type="password" name = "password" required class="form-control" id="exampleInputPassword" placeholder="Enter Password">
+                      <input type="password" name = "password" required class="form-control" id="exampleInputPassword" placeholder="Nhập mật khẩu">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
@@ -103,7 +103,7 @@ session_start();
                     </a> -->
                   <hr>
                   <div class="text-center">
-                    <a class="font-weight-bold small" href="classTeacherLogin.php">Class Teacher Login!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="font-weight-bold small" href="classTeacherLogin.php">Giáo viên:đăng nhập!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <!-- <a class="font-weight-bold small" href=".php">Cooperative Account!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="font-weight-bold small" href="forgotPassword.php">Forgot Password?</a> -->
 

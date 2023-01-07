@@ -159,10 +159,10 @@ if(isset($_POST['save'])){
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Create Session and Term</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tạo phiên và thời hạn</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Create Session and Term<</li>
+              <li class="breadcrumb-item"><a href="./">Trang chủ</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Tạo phiên và thời hạn<</li>
             </ol>
           </div>
 
@@ -171,18 +171,18 @@ if(isset($_POST['save'])){
               <!-- Form Basic -->
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Create Session and Term</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tạo phiên và thời hạn</h6>
                     <?php echo $statusMsg; ?>
                 </div>
                 <div class="card-body">
                   <form method="post">
                     <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                            <label class="form-control-label">Session Name<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Tên phiên<span class="text-danger ml-2">*</span></label>
                       <input type="text" class="form-control" name="sessionName" value="<?php echo $row['sessionName'];?>" id="exampleInputFirstName" placeholder="Session">
                         </div>
                         <div class="col-xl-6">
-                            <label class="form-control-label">Term<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Thời hạn<span class="text-danger ml-2">*</span></label>
                               <?php
                         $qry= "SELECT * FROM tblterm ORDER BY termName ASC";
                         $result = $conn->query($qry);
@@ -202,12 +202,12 @@ if(isset($_POST['save'])){
                     if (isset($Id))
                     {
                     ?>
-                    <button type="submit" name="update" class="btn btn-warning">Update</button>
+                    <button type="submit" name="update" class="btn btn-warning">Cập nhật</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php
                     } else {           
                     ?>
-                    <button type="submit" name="save" class="btn btn-primary">Save</button>
+                    <button type="submit" name="save" class="btn btn-primary">Lưu</button>
                     <?php
                     }         
                     ?>
@@ -220,8 +220,8 @@ if(isset($_POST['save'])){
               <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">All Session and Term</h6>
-                  <h6 class="m-0 font-weight-bold text-danger">Note: <i>Click on the check symbol besides each to make session and term active!</i></h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tất cả phiên và thời hạn</h6>
+                  <h6 class="m-0 font-weight-bold text-danger">Note: <i>Nhấp vào biểu tượng kiểm tra bên cạnh mỗi biểu tượng để kích hoạt phiên và thời hạn!</i></h6>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">

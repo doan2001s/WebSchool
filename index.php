@@ -15,7 +15,7 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo/attnlg.jpg" rel="icon">
-  <title>AMS - Login</title>
+  <title>AMS-Đăng nhập</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -32,31 +32,29 @@ session_start();
             <div class="row">
               <div class="col-lg-12">
                 <div class="login-form">
-                <h5 align="center">STUDENT ATTENDANCE SYSTEM</h5>
+                <h5 align="center">Hệ thống Quản lý học sinh</h5>
                   <div class="text-center">
                     <img src="img/logo/attnlg.jpg" style="width:100px;height:100px">
                     <br><br>
-                    <h1 class="h4 text-gray-900 mb-4">Admin Login Panel</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Đăng nhập admin</h1>
                   </div>
                   <form class="user" method="Post" action="">
                   <div class="form-group">
                   <select required name="userType" class="form-control mb-3">
-                          <option value="">--Select User Roles--</option>
-                          <option value="Administrator">Administrator</option>
-                          <option value="ClassTeacher">ClassTeacher</option>
+                          <option value="">Chọn</option>
+                          <option value="Administrator">Admin</option>
+                          <option value="ClassTeacher">Lớp giáo viên</option>
                         </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" required name="username" id="exampleInputEmail" placeholder="Enter Email Address">
+                      <input type="text" class="form-control" required name="username" id="exampleInputEmail" placeholder="Nhập email">
                     </div>
                     <div class="form-group">
-                      <input type="password" name = "password" required class="form-control" id="exampleInputPassword" placeholder="Enter Password">
+                      <input type="password" name = "password" required class="form-control" id="exampleInputPassword" placeholder="Nhập mật khẩu">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <!-- <label class="custom-control-label" for="customCheck">Remember
-                          Me</label> -->
                       </div>
                     </div>
                     <div class="form-group">

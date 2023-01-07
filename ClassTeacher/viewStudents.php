@@ -75,7 +75,7 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
             <h1 class="h3 mb-0 text-gray-800">All Student in (<?php echo $rrw['className'].' - '.$rrw['classArmName'];?>) Class</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">All Student in Class</li>
+              <li class="breadcrumb-item active" aria-current="page">Tất cả học sinh trong lớp</li>
             </ol>
           </div>
 
@@ -89,7 +89,7 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
               <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">All Student In Class</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tất cả học sinh trong lớp</h6>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -101,7 +101,7 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
                         <th>Other Name</th>
                         <th>Admission No</th>
                         <th>Class</th>
-                        <th>Class Arm</th>
+                        <th>Nhánh Class</th>
                       </tr>
                     </thead>
                     

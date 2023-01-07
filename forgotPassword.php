@@ -35,11 +35,11 @@ session_start();
                   <div class="text-center">
                     <img src="img/logo/attnlg.jpg" style="width:100px;height:100px">
                     <br><br>
-                    <h1 class="h4 text-gray-900 mb-4">Forgot Password</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Quên mật khẩu</h1>
                   </div>
                   <form class="user" method="Post" action="">
                     <div class="form-group">
-                      <input type="email" class="form-control" required name="email" id="exampleInputEmail" placeholder="Enter Email Address">
+                      <input type="email" class="form-control" required name="email" id="exampleInputEmail" placeholder="Nhập email">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
@@ -72,7 +72,7 @@ session_start();
                   <div class="text-center">
                     <a class="font-weight-bold small" href="memberSetup.php">Create a Memeber Account!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="font-weight-bold small" href="organizationSetup.php">Setup Cooperative Account!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="font-weight-bold small" href="forgotPassword.php">Forgot Password?</a>
+                    <a class="font-weight-bold small" href="forgotPassword.php">Quên mật khẩu?</a>
 
                   </div>
                   <div class="text-center">

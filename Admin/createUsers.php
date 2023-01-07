@@ -31,7 +31,7 @@ include '../Includes/session.php';
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="../img/logo/attnlg.jpg" rel="icon">
-  <title>COBIS - Dashboard</title>
+  <title>COBIS - Bảng điều khiển</title>
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -79,10 +79,10 @@ function displayCompany(str) {
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Users</h1>
+            <h1 class="h3 mb-0 text-gray-800">Thêm users</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Add Users</li>
+              <li class="breadcrumb-item"><a href="./">Trang chủ</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Thêm users</li>
             </ol>
           </div>
 
@@ -91,59 +91,59 @@ function displayCompany(str) {
               <!-- Form Basic -->
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Add Users</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Thêm users</h6>
                     <?php echo $statusMsg; ?>
                 </div>
                 <div class="card-body">
                   <form method="post" action="scripts/saveUsers.php">
                    <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                            <label class="form-control-label">FirstName<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Tên<span class="text-danger ml-2">*</span></label>
                       <input type="text" class="form-control" name="firstName" id="exampleInputFirstName" placeholder="First Name">
                         </div>
                         <div class="col-xl-6">
-                            <label class="form-control-label">LastName<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Họ<span class="text-danger ml-2">*</span></label>
                       <input type="textarea" class="form-control" name="lastName" id="exampleInputFirstName" placeholder="Last Name">
                         </div>
                     </div>
                      <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                            <label class="form-control-label">Gender<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Giới tính<span class="text-danger ml-2">*</span></label>
                         <select class="form-control mb-3" name="gender">
-                             <option>--Select--</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>   
+                             <option>--Chọn--</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>   
                      </select>                                                       
                      </div>
                         <div class="col-xl-6">
-                            <label class="form-control-label">Date of Birth<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Sinh nhật<span class="text-danger ml-2">*</span></label>
                       <input type="date" class="form-control" name="dob" id="exampleInputFirstName" placeholder="Dob">
                         </div>
                     </div>
                      <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                            <label class="form-control-label">Email Address<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Email<span class="text-danger ml-2">*</span></label>
                       <input type="text" class="form-control" name="email" id="exampleInputFirstName" placeholder="Email Address">
                         </div>
                         <div class="col-xl-6">
-                            <label class="form-control-label">Phone Number<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">SDT<span class="text-danger ml-2">*</span></label>
                       <input type="text" class="form-control" name="phoneNo" id="exampleInputFirstName" placeholder="Phone Number">
                         </div>
                     </div>
                    
                      <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                            <label class="form-control-label">City<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Thành phố<span class="text-danger ml-2">*</span></label>
                       <input type="text" class="form-control" name="city" id="exampleInputFirstName" placeholder="City">
                         </div>
                         <div class="col-xl-6">
-                            <label class="form-control-label">State<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Xã<span class="text-danger ml-2">*</span></label>
                       <input type="textarea" class="form-control" name="state" id="exampleInputFirstName" placeholder="State">
                         </div>
                     </div>
                    <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                            <label class="form-control-label">Address<span class="text-danger ml-2">*</span></label>
+                            <label class="form-control-label">Địa chỉ<span class="text-danger ml-2">*</span></label>
                       <input type="text" class="form-control" name="address" id="exampleInputFirstName" placeholder="Address">
                         </div>
                         <div class="col-xl-6">
@@ -153,7 +153,7 @@ function displayCompany(str) {
                     </div>  
                       <div class="form-group row mb-3">
                         <div class="col-xl-6">
-                        <label class="form-control-label">Select Role<span class="text-danger ml-2">*</span></label>
+                        <label class="form-control-label">Chọn<span class="text-danger ml-2">*</span></label>
                              <?php
                         $qry= "SELECT * FROM roles where Id != 2 ORDER BY roleName ASC";
                         $result = $conn->query($qry);
@@ -172,7 +172,7 @@ function displayCompany(str) {
                         </div>
                     </div>
                    
-                    <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Lưu</button>
                   </form>
                 </div>
               </div>
@@ -182,7 +182,7 @@ function displayCompany(str) {
               <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tất cả người dùng</h6>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">

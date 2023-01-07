@@ -1,1 +1,1 @@
-  <title>AMS - Dashboard</title>
+  <title>AMS - Bảng điều khiển</title>
