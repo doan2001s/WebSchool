@@ -273,7 +273,6 @@ if(isset($_POST['save'])){
       var className = $("input[name=className]").val();
       if( className.length <= 4  && className !== '' ){
           $('.mes-err').removeAttr("hidden");
-          
       }
       else{
         $('.mes-err').attr("hidden", "hidden");

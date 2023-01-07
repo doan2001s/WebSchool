@@ -16,7 +16,7 @@ if(isset($_POST['save'])){
 
     if($ret > 0){ 
 
-        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>This Class Arm Already Exists!</div>";
+        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Mã lớp này đã tồn tại!</div>";
     }
     else{
 
@@ -24,11 +24,11 @@ if(isset($_POST['save'])){
 
     if ($query) {
         
-        $statusMsg = "<div class='alert alert-success'  style='margin-right:700px;'>Created Successfully!</div>";
+        $statusMsg = "<div class='alert alert-success'  style='margin-right:700px;'>Tạo mã lớp thành công!</div>";
     }
     else
     {
-         $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+         $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>";
     }
   }
 }
@@ -66,7 +66,7 @@ if(isset($_POST['save'])){
             }
             else
             {
-                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>";
             }
         }
     }
@@ -88,7 +88,7 @@ if(isset($_POST['save'])){
         }
         else{
 
-            $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>"; 
+            $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Lỗi!</div>"; 
          }
       
   }
@@ -151,7 +151,7 @@ if(isset($_POST['save'])){
                         $result = $conn->query($qry);
                         $num = $result->num_rows;		
                         if ($num > 0){
-                          echo ' <select required name="classId" class="form-control mb-3">';
+                          echo ' <select  required name="classId" class="form-control mb-3">';
                           echo'<option value="">--Chọn lớp--</option>';
                           while ($rows = $result->fetch_assoc()){
                           echo'<option value="'.$rows['Id'].'" >'.$rows['className'].'</option>';
@@ -161,20 +161,23 @@ if(isset($_POST['save'])){
                             ?>  
                         </div>
                         <div class="col-xl-6">
-                        <label class="form-control-label">Tên mã lớp<span class="text-danger ml-2">*</span></label>
-                      <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Tên mã lớp">
-                        </div>
+                      <label class="form-control-label">Tên mã lớp<span class="text-danger ml-2">*</span></label>
+                      <input type="text" class="form-control control-input" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Tên mã lớp">
+                      <label class="mes-err" hidden>
+                        Bạn cần nhập mã ít nhất 2 ký tự
+                      </label>  
+                    </div>
                     </div>
                       <?php
                     if (isset($Id))
                     {
                     ?>
-                    <button type="submit" name="update" class="btn btn-warning">Cập nhật</button>
+                    <button id="send-btn" type="submit" name="update" class="btn btn-warning">Cập nhật</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php
                     } else {           
                     ?>
-                    <button type="submit" name="save" class="btn btn-primary">Lưu</button>
+                    <button id="send-btn" type="submit" name="save" class="btn btn-primary">Lưu</button>
                     <?php
                     }         
                     ?>
@@ -187,7 +190,7 @@ if(isset($_POST['save'])){
               <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Tất cả nhánh lớp</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tất cả mã lớp</h6>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -280,14 +283,35 @@ if(isset($_POST['save'])){
    <!-- Page level plugins -->
   <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
   <!-- Page level custom scripts -->
   <script>
     $(document).ready(function () {
       $('#dataTable').DataTable(); // ID From dataTable 
-      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
-    });
+      $('#dataTableHover').DataTable();
+
+
+      $(".control-input").on('keyup',function(){
+      var classArmName = $("input[name=classArmName]").val();
+      if( classArmName.length <= 1  && classArmName !== '' ){
+          $('.mes-err').removeAttr("hidden");
+          
+      }
+      else{
+        $('.mes-err').attr("hidden", "hidden");
+      }
+      if( classArmName.length > 1 && classArmName !== '' ){
+        $('#send-btn').removeAttr("disabled");
+      }
+      else{
+    $('#send-btn').attr('disabled', 'disabled');}
+    }) 
+  });
   </script>
+  <style>
+    .mes-err{
+      color:red;
+    }
+  </style>
 </body>
 
 </html>
